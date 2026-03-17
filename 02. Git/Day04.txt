@@ -1,0 +1,22 @@
+Git & GitHub_Day04
+===================
+=> GitHub (continuation to Day 03)
+
+Git Push		- to send the code from local to remote repo
+Git Clone	- to get a complete copy of the repo to the local
+
+=> Git Pull	- to get the changes available in the remote repo
+
+=> Git Fork	- to get the copy of a code from someones  remote repo to my remote repo
+
+=> Upload a file directly in the remote repo
+
+=> Branches
+
+Note: Whenever we are switching (first time) from an existing branch to the newly created branch, whatever files/directories that are available in the existing branch all those files will come into the newly created branch
+
+=> .gitignore - to ignore the files to send to remote repo
+
+=> Branch Merging (in the remote repo) & Pull request & Merging the Pull Request
+
+=> Changing the default branch
