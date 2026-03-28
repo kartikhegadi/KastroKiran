@@ -1,0 +1,81 @@
+Module 6: Jenkins_Day02
+=====================
+=> Throttle Builds
+Team - a fresher has joined (intern) - intern has to build a job - continuously click on "build now" - load on server will get increased
+Limit/restrict the number of builds to happen in a specific time period - Throttle Build
+
+1hr ---- max 5 builds	- 60/5 = every 12 minutes you can build (1-12, 13-24, 25-....)
+1hr ---- max 10 builds
+
+=> Build Triggers - Build Periodically
+Periodically - build the job at regular intervals of time
+We can schedule a job - every minute, every hour, at a specific time on a specific date...
+Cron Expression - * * * * * 
+
+* * * * * ----> Every minute build the job
+H * * * * ----> Every hour build the job
+H/2 * * * * ----> Every 30 minutes build the job
+
+Limitation: Build periodically doesn't bother about code changes in the GitHub repo. It will only bother about the schedule
+
+=> Build Triggers - Poll SCM
+Cron Expression - * * * * *
+Poll SCM will look after the changes in the GitHub repo, and then triggers the job at the scheduled time.
+
+Limitation: Here wait time is there
+
+=> Build Triggers - GitHub Hook Trigger
+The build will get triggered immediately after committing the code in the GitHub repo.
+
+=> Build Triggers - Trigger Builds Remotely
+Team Lead - only i can build a job
+Team Members - create and configure a job
+
+TL - went on leave
+
+We can trigger the job by executing a Remote URL
+
+JENKINS_URL/job/trigger-job/build?token=TOKEN_NAME
+
+=> Build Triggers - Build after other projects are built (Upstream and downstream job)
+Job 1	- microservice 1	- build, artifact will store
+Job 2	- microservice 2	- build, artifact will store
+Job 3	- microservice 3	- build, artifact will store
+Job 4	- deployment
+
+=> Build & Deployment of Java App - Jenkins CI & CD - Project 1
+
+Repo URL:https://github.com/KastroVKiran/my-prime-v2.git
+
+=> Nexus: https://youtu.be/opJAfDOCZuI?si=b_4crpIvNyBWeIVe
+=> SonarQube: https://youtu.be/ScdedztTaAU?si=YXPg9EyYWfpbOfex
+
+
+
+
+
+
+
+
+
+
+Edit the context.xml file in manager and host-manager locations
+<?xml version="1.0" encoding="UTF-8"?>
+<Context privileged="true">
+    <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+           allow="^.*$" />
+</Context>
+
+Edit the server.xml file with required port number
+
+Edit the tomcat-users.xml file with admin info
+  <role rolename="manager-gui"/>
+  <role rolename="admin-gui"/>
+  <user username="tomcat" password="tomcat" roles="manager-gui"/>
+  <role rolename="manager-script"/>
+  <user username="admin" password="admin" roles="manager-gui,admin-gui,manager-script"/>
+
+
+Jenkins installation on Amazon Linux 2023;
+https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/
+
